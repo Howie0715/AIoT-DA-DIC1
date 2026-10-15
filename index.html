@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>黃翊豪 Howie · Personal Page</title>
+  <meta name="description" content="黃翊豪 (Howie)'s personal page — profile, skills, projects and a live clock." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="network" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <a class="brand" href="#profile">howie<span class="cursor">_</span></a>
+    <nav>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#clock">Clock</a>
+    </nav>
+    <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">◐</button>
+  </header>
+
+  <main>
+    <!-- 1. Profile -->
+    <section id="profile" class="card hero reveal">
+      <div class="avatar-wrap">
+        <img id="avatar" class="avatar" alt="Avatar" />
+        <span class="status-dot" title="online"></span>
+      </div>
+      <div class="hero-text">
+        <p class="greeting mono" id="greeting">Hello</p>
+        <h1 data-field="name">黃翊豪</h1>
+        <p class="role" data-field="role">Computer Science &amp; Engineering · Student</p>
+        <p class="bio" data-field="bio">Hi! I enjoy connecting sensors, data and AI to build things that react to the real world. Currently learning IoT data analysis and web development.</p>
+        <div class="hero-actions">
+          <a class="btn" id="githubLink" href="https://github.com/Howie0715" target="_blank" rel="noopener">GitHub ↗</a>
+          <button class="btn ghost" id="editToggle">✏️ Edit Profile</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Skills -->
+    <section id="skills" class="reveal">
+      <h2><span class="mono num">01</span> Skills</h2>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </section>
+
+    <!-- 3. Projects -->
+    <section id="projects" class="reveal">
+      <h2><span class="mono num">02</span> Projects</h2>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+
+    <!-- 4. Live Clock -->
+    <section id="clock" class="card clock-card reveal">
+      <h2><span class="mono num">03</span> Live Clock</h2>
+      <div class="clock mono" id="clockDisplay" aria-live="off">
+        <span id="hh">00</span><span class="colon">:</span><span id="mm">00</span><span class="colon">:</span><span id="ss">00</span><span id="ampm" class="ampm"></span>
+      </div>
+      <p class="date mono" id="dateDisplay"></p>
+      <p class="tz mono">🌍 <span id="tzDisplay"></span></p>
+      <div class="clock-actions">
+        <button class="btn ghost" id="formatToggle">24H</button>
+        <button class="btn ghost" id="copyBtn">📋 Copy Timestamp</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mono">
+    © <span id="year"></span> 黃翊豪 Howie · Built for DIC1 · Hosted on GitHub Pages
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
