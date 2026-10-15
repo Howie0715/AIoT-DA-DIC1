@@ -11,7 +11,7 @@
 ### Basic requirements
 | # | Requirement | Implementation |
 |---|---|---|
-| 1 | Profile | Name, avatar, role, short bio |
+| 1 | Profile | Name, GitHub avatar, department, short bio |
 | 2 | Skills | 6 skill cards with animated level bars |
 | 3 | Projects | Project cards with description, tech tags and GitHub link |
 | 4 | Live Clock | `HH : MM : SS`, updated every second with `setInterval` |
@@ -22,8 +22,7 @@
 - 🔄 12H / 24H toggle
 - 🌍 Automatic time zone + UTC offset
 - 📋 Copy ISO timestamp to clipboard
-- ✏️ Edit the profile in-page (name, role, bio, avatar URL)
-- 💾 Theme, clock format and profile saved in `localStorage`
+- 💾 Theme and clock format saved in `localStorage`
 - 🌌 Particle network background that reacts to the mouse
 - 🌗 Dark / light theme switch
 - ✨ Scroll-reveal animations
@@ -33,7 +32,7 @@
 ```
 index.html   page structure
 style.css    theme, layout, animations
-app.js       data (skills/projects), clock, profile editing, particle background
+app.js       data (skills/projects), clock, theme, particle background
 README.md
 screenshots/ README screenshot
 ```

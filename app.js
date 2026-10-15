@@ -12,7 +12,7 @@ const PROJECTS = [
   {
     name: "DIC1 Personal Page",
     status: "done",
-    description: "This site: a responsive personal page with a live clock, editable profile, theme switcher and an animated IoT-network background.",
+    description: "This site: a responsive personal page with a live clock, 12H/24H switch, light/dark theme and an animated IoT-network background.",
     tech: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
     link: "https://github.com/Howie0715/AIoT-DA-DIC1",
   },
@@ -68,54 +68,6 @@ themeToggle.addEventListener("click", () => {
   const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   applyTheme(theme);
   settings = saveSettings({ theme });
-});
-
-// ===== Profile (editable) =====
-const fields = document.querySelectorAll("[data-field]");
-const avatar = document.getElementById("avatar");
-const editToggle = document.getElementById("editToggle");
-
-function initialsAvatar(name) {
-  const initials = name.trim().split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase() || "?";
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
-    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#3ef2c4"/><stop offset="1" stop-color="#5aa8ff"/></linearGradient></defs>
-    <rect width="160" height="160" fill="#0d1424"/>
-    <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle"
-      font-family="Space Grotesk, sans-serif" font-size="64" font-weight="700" fill="url(#g)">${initials}</text>
-  </svg>`;
-  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
-}
-
-function renderAvatar() {
-  const name = document.querySelector('[data-field="name"]').textContent;
-  avatar.src = settings.avatarUrl || initialsAvatar(name);
-}
-
-// Restore saved profile text
-fields.forEach((el) => {
-  const saved = settings.profile?.[el.dataset.field];
-  if (saved) el.textContent = saved;
-});
-renderAvatar();
-
-editToggle.addEventListener("click", () => {
-  const editing = document.body.classList.toggle("editing");
-  fields.forEach((el) => (el.contentEditable = editing));
-  editToggle.textContent = editing ? "💾 Save Profile" : "✏️ Edit Profile";
-
-  if (editing) {
-    fields[0].focus();
-    showToast("Click the text to edit it");
-    return;
-  }
-
-  const profile = {};
-  fields.forEach((el) => (profile[el.dataset.field] = el.textContent.trim()));
-  const url = prompt("Avatar image URL (leave blank for initials):", settings.avatarUrl || "");
-  settings = saveSettings({ profile, avatarUrl: url?.trim() || "" });
-  renderAvatar();
-  showToast("Profile saved ✓");
 });
 
 // ===== Skills =====

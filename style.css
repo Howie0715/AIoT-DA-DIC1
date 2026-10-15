@@ -167,15 +167,6 @@ h2 .num { color: var(--accent); font-size: 0.9rem; }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
 
-/* Edit mode */
-body.editing [data-field] {
-  outline: 1px dashed var(--accent);
-  outline-offset: 4px;
-  border-radius: 4px;
-  cursor: text;
-}
-body.editing .hero h1 { color: var(--text); background: none; }
-
 /* ===== Buttons ===== */
 .btn {
   display: inline-flex;
