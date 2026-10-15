@@ -4,6 +4,8 @@
 
 🔗 **Live:** https://howie0715.github.io/AIoT-DA-DIC1/
 
+![Personal page screenshot](screenshots/desktop.png)
+
 ## Features
 
 ### Basic requirements
@@ -33,6 +35,7 @@ index.html   page structure
 style.css    theme, layout, animations
 app.js       data (skills/projects), clock, profile editing, particle background
 README.md
+screenshots/ README screenshot
 ```
 
 ## Customize
